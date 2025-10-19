@@ -32,7 +32,7 @@ class mycrew:
             max_rpm=None,
             max_execution_time=None,
             llm=LLM(
-                model="azure/gpt-4o",
+                model="gpt-4o-mini",
                 temperature=0.7,
             ),
             
@@ -57,7 +57,7 @@ class mycrew:
             max_rpm=None,
             max_execution_time=None,
             llm=LLM(
-                model="azure/gpt-4o",
+                model="gpt-4o-mini",
                 temperature=0.7,
             ),
             
