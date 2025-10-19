@@ -1,0 +1,26 @@
+---
+collect_personal_project_information:
+  description:
+    Start by carefully analyzing the initial message '{initial_message}'
+    to extract any personal information present. Look for names, locations, or other
+    identifying details. If the message contains complete information (first name,
+    last name, country, city), extract and structure it. If information is missing,
+    ask specific follow-up questions to gather the remaining details. Do not proceed
+    until you have collected all four required fields with real data.
+  expected_output:
+    "Complete person information with all required fields filled: first_name,
+    last_name, country, and city. No placeholders or missing information allowed."
+  agent: information_collector
+  human_input: true
+create_person_summary:
+  description:
+    "Transform the collected personal information into a natural introduction
+    by: \n1. Reading through the collected name and location details \n2. Creating
+    a natural language introduction about the person \n3. Present the draft to human
+    for approval before finalizing"
+  expected_output:
+    A brief, natural sentence introduction that presents the person's
+    name and location, approved by human reviewer.
+  agent: information_summarizer
+  context:
+    - collect_personal_project_information
