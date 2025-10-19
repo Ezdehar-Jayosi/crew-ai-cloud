@@ -9,7 +9,7 @@ from pydantic import BaseModel
 from jambo import SchemaConverter
 
 @CrewBase
-class modifiedProject:
+class mycrew:
     """UntitledProject crew"""
 
     

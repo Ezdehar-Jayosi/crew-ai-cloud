@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import sys
-from modifiedProject.crew import modifiedProject
+from hitlcrew.crew import mycrew
 
 # This main file is intended to be a way for your to run your
 # crew locally, so refrain from adding unnecessary logic into this file.
@@ -14,7 +14,7 @@ def run():
     inputs = {
         'initial_message': 'sample_value'
     }
-    modifiedProject().crew().kickoff(inputs=inputs)
+    mycrew().crew().kickoff(inputs=inputs)
 
 
 def train():
@@ -25,7 +25,7 @@ def train():
         'initial_message': 'sample_value'
     }
     try:
-        modifiedProject().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
+        mycrew().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
 
     except Exception as e:
         raise Exception(f"An error occurred while training the crew: {e}")
@@ -35,7 +35,7 @@ def replay():
     Replay the crew execution from a specific task.
     """
     try:
-        modifiedProject().crew().replay(task_id=sys.argv[1])
+        mycrew().crew().replay(task_id=sys.argv[1])
 
     except Exception as e:
         raise Exception(f"An error occurred while replaying the crew: {e}")
@@ -48,7 +48,7 @@ def test():
         'initial_message': 'sample_value'
     }
     try:
-        modifiedProject().crew().test(n_iterations=int(sys.argv[1]), openai_model_name=sys.argv[2], inputs=inputs)
+        mycrew().crew().test(n_iterations=int(sys.argv[1]), openai_model_name=sys.argv[2], inputs=inputs)
 
     except Exception as e:
         raise Exception(f"An error occurred while testing the crew: {e}")
