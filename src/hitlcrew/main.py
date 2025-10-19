@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import os
 import sys
-from crew import mycrew
+from hitlcrew.crew import mycrew
 
 # This main file is intended to be a way for your to run your
 # crew locally, so refrain from adding unnecessary logic into this file.
