@@ -1,0 +1,24 @@
+[project]
+name = "hitlcrew"
+version = "0.1.0"
+description = "hitlcrew using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "crewai[tools]>=0.203.0,<1.0.0",
+    "jambo",
+]
+
+[project.scripts]
+untitled_project = "hitlcrew.main:run"
+run_crew = "hitlcrew.main:run"
+train = "hitlcrew.main:train"
+replay = "hitlcrew.main:replay"
+test = "hitlcrew.main:test"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"

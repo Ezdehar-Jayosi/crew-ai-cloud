@@ -71,8 +71,7 @@ class mycrew:
             config=self.tasks_config["collect_personal_project_information"],
             markdown=False,
             output_json=self._load_response_format("collect_personal_project_information"),
-            human_input=True
-            
+
         )
     
     @task
