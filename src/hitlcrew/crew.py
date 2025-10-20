@@ -7,7 +7,19 @@ from crewai.project import CrewBase, agent, crew, task
 from pydantic import BaseModel
 from jambo import SchemaConverter
 
+required_vars = ['AZURE_API_KEY', 'AZURE_API_BASE', 'AZURE_API_VERSION']
+for var in required_vars:
+    if var not in os.environ:
+        print(f"Missing: {var}")
+    else:
+        print(f"{var}: Set")
 
+azure_llm = LLM(
+    model="azure/gpt-4",  # or your deployed model
+    base_url=os.getenv("AZURE_API_BASE"),
+    api_key=os.getenv("AZURE_API_KEY"),
+    api_version=os.getenv("AZURE_API_VERSION")
+)
 @CrewBase
 class mycrew:
     """UntitledProject crew"""
@@ -27,10 +39,11 @@ class mycrew:
             max_iter=25,
             max_rpm=None,
             max_execution_time=None,
-            llm=LLM(
-                model="azure/gpt-4o",
-                temperature=0.7,
-            ),
+            # llm=LLM(
+            #     model="azure/gpt-4o",
+            #     temperature=0.7,
+            # ),
+            llm=azure_llm,
 
         )
 
@@ -49,11 +62,11 @@ class mycrew:
             max_iter=25,
             max_rpm=None,
             max_execution_time=None,
-            llm=LLM(
-                model="azure/gpt-4o",
-                temperature=0.7,
-            ),
-
+            # llm=LLM(
+            #     model="azure/gpt-4o",
+            #     temperature=0.7,
+            # ),
+            llm=azure_llm,
         )
 
     @task
