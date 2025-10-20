@@ -14,12 +14,12 @@ for var in required_vars:
     else:
         print(f"{var}: Set")
 
-# azure_llm = LLM(
-#     model="azure/gpt-4",  # or your deployed model
-#     base_url=os.getenv("AZURE_API_BASE"),
-#     api_key=os.getenv("AZURE_API_KEY"),
-#     api_version=os.getenv("AZURE_API_VERSION")
-# )
+azure_llm = LLM(
+    model="azure/gpt-4o",  # or your deployed model
+    base_url=os.getenv("AZURE_API_BASE"),
+    api_key=os.getenv("AZURE_API_KEY"),
+    api_version=os.getenv("AZURE_API_VERSION")
+)
 @CrewBase
 class mycrew:
     """UntitledProject crew"""
@@ -43,7 +43,7 @@ class mycrew:
             #     model="azure/gpt-4o",
             #     temperature=0.7,
             # ),
-            # llm=azure_llm,
+            llm=azure_llm,
 
         )
 
@@ -66,7 +66,7 @@ class mycrew:
             #     model="azure/gpt-4o",
             #     temperature=0.7,
             # ),
-            # llm=azure_llm,
+            llm=azure_llm,
         )
 
     @task
