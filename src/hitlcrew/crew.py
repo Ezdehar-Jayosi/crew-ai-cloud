@@ -43,7 +43,7 @@ class mycrew:
             #     model="azure/gpt-4o",
             #     temperature=0.7,
             # ),
-            llm=azure_llm,
+            # llm=azure_llm,
 
         )
 
@@ -66,7 +66,7 @@ class mycrew:
             #     model="azure/gpt-4o",
             #     temperature=0.7,
             # ),
-            llm=azure_llm,
+            # llm=azure_llm,
         )
 
     @task
