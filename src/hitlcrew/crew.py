@@ -4,23 +4,19 @@ from crewai import LLM
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 
-
 from pydantic import BaseModel
 from jambo import SchemaConverter
+
 
 @CrewBase
 class mycrew:
     """UntitledProject crew"""
 
-    
     @agent
     def information_collector(self) -> Agent:
-
-        
         return Agent(
             config=self.agents_config["information_collector"],
-            
-            
+
             tools=[
 
             ],
@@ -35,17 +31,14 @@ class mycrew:
                 model="gpt-4o",
                 temperature=0.7,
             ),
-            
+
         )
-    
+
     @agent
     def information_summarizer(self) -> Agent:
-
-        
         return Agent(
             config=self.agents_config["information_summarizer"],
-            
-            
+
             tools=[
 
             ],
@@ -60,30 +53,26 @@ class mycrew:
                 model="gpt-4o",
                 temperature=0.7,
             ),
-            
+
         )
 
-
-    
     @task
     def collect_personal_project_information(self) -> Task:
         return Task(
             config=self.tasks_config["collect_personal_project_information"],
             markdown=False,
             output_json=self._load_response_format("collect_personal_project_information"),
+            human_input=True
 
         )
-    
+
     @task
     def create_person_summary(self) -> Task:
         return Task(
             config=self.tasks_config["create_person_summary"],
             markdown=False,
-            
-            
+
         )
-    
-    
 
     @crew
     def crew(self) -> Crew:
