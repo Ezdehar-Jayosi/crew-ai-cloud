@@ -13,7 +13,7 @@ def run():
     Run the crew.
     """
     inputs = {
-        'initial_message': 'sample_value'
+        'initial_message': 'hi'
     }
     mycrew().crew().kickoff(inputs=inputs)
 
