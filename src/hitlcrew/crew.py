@@ -13,6 +13,12 @@ for var in required_vars:
         print(f"Missing: {var}")
     else:
         print(f"{var}: Set")
+os.environ["AZURE_API_BASE"] = os.getenv("AZURE_OPENAI_ENDPOINT")
+os.environ["AZURE_API_KEY"] = os.getenv("AZURE_OPENAI_API_KEY")
+os.environ["AZURE_API_VERSION"] = os.getenv("OPENAI_API_VERSION")
+os.environ["OPENAI_API_KEY"] = os.getenv("AZURE_OPENAI_API_KEY")
+os.environ["AZURE_DEPLOYMENT_NAME"] = os.getenv("AZURE_OPENAI_DEPLOYMENT")
+
 
 azure_llm = LLM(
     model="azure/gpt-4o",
